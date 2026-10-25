@@ -1,0 +1,11 @@
+node_modules/
+.venv/
+__pycache__/
+*.log
+
+# Eval run output (transcripts may contain local context)
+evals/runs/
+evals/.cache/
+
+.claude/settings.local.json
+.claude/worktrees/

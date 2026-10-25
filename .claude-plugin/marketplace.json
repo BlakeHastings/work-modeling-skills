@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "work-modeling-skills",
+  "description": "Skills for modeling work from the user's point of view: stories, acceptance criteria, and (coming) epics, splitting, and spikes.",
+  "owner": {
+    "name": "Blake Hastings",
+    "url": "https://github.com/BlakeHastings"
+  },
+  "plugins": [
+    {
+      "name": "work-modeling",
+      "source": "./",
+      "description": "An opinionated method for modeling work from the user's point of view: user stories with an actor, a need, and a purpose, Gherkin-like acceptance criteria, and routing of technical work, spikes, and enablers. Epic > Story > Sub-task.",
+      "category": "workflow",
+      "keywords": [
+        "user-stories",
+        "agile",
+        "backlog",
+        "acceptance-criteria",
+        "gherkin",
+        "epics"
+      ]
+    }
+  ]
+}
