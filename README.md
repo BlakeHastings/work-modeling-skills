@@ -34,8 +34,9 @@ Do not do both on one machine, or the skill loads twice.
 
 ## Evals
 
-Skills are tested against realistic prompts, with and without the skill, and graded on the method's
-rules. Evals run locally only. See `evals/` once it lands.
+Skills are tested against realistic prompts, with and without the skill, with a simulated owner
+answering the agent's questions, and graded on the method's rules. Evals run locally only, on your
+Claude login. See [evals/README.md](evals/README.md).
 
 ## License
 

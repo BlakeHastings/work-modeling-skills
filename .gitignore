@@ -4,8 +4,8 @@ __pycache__/
 *.log
 
 # Eval run output (transcripts may contain local context)
-evals/runs/
-evals/.cache/
+workspace/
+*.pyc
 
 .claude/settings.local.json
 .claude/worktrees/

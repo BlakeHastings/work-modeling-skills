@@ -28,8 +28,9 @@ As <actor>, I want <need>, so that <purpose>.
 ```
 
 - **Actor**: who experiences the change. Every story has one, because it decides who the change is
-  for, who to test as, and who is left out. Use an archetype; "any <product> user" is valid when it
-  really is everyone, written explicitly so it reads as a decision.
+  for, who to test as, and who is left out. Use the most specific archetype that fits. "Any
+  <product> user" is valid only when the change genuinely matters equally to everyone; reaching for
+  it when a narrower archetype fits hides who the story is really for.
 - **Need**: what the actor wants, in their words, free of implementation. "Run a CLI command that
   backs up all my sessions", not "run `protostar sync --all`". Naming the mechanism here fixes the
   design before anyone has thought about it, and makes the story wrong the moment the design changes.
@@ -59,7 +60,10 @@ it will, or how it would.
 Two rules cut across fields:
 - **Commands, endpoints, and UI element names stay out of the statement and criteria** and go in
   Context, unless the interface itself is the contract (a documented public API). That keeps the
-  story true while the implementation moves.
+  story true while the implementation moves. If the user explicitly asks for one in the statement or
+  criteria, do what they asked, then tell them briefly why it is a concern (it fixes the design and
+  goes stale when the interface changes) and offer to move it to Context. Their instruction wins; your
+  job is to make the trade-off visible, not to override it.
 - **Every story reads on its own.** No "same as the backup story". Stories get read one at a time, by
   people and agents who have not seen the others.
 

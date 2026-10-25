@@ -18,13 +18,15 @@ produces smaller items with no value.
 
 ## Smells
 
-**Generic actor.** "As a user". Fix: name the archetype, or write "any <product> user" deliberately.
+**Generic actor.** "As a user", or "any <product> user" when a narrower archetype fits. Fix: name
+the most specific archetype; keep "any <product> user" for changes that matter equally to everyone.
 
 **Builder as actor.** "As the developer implementing X". Fix: it is a sub-task or part of a story.
 (A developer who *uses* a developer tool is a valid actor.)
 
 **Implementation in the need.** A command, flag, endpoint, table, or library in the "I want".
-Fix: describe the capability ("a CLI command that ..."); put the specific shape in Context.
+Fix: describe the capability ("a CLI command that ..."); put the specific shape in Context. If the
+user explicitly asked for it there, keep it, flag the concern, and offer to move it.
 
 **Purpose restates the need.** "I want X so that X happens". Fix: ask why the actor wants X; the
 answer is the purpose.
