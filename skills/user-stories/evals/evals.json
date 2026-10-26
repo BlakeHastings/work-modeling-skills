@@ -6,50 +6,58 @@
       "id": 1,
       "name": "raw-idea-codex",
       "validated": true,
-      "validation_note": "Owner validated 2026-10-25.",
+      "validation_note": "Owner validated 2026-10-25. 2026-10-25: assertions that passed in both configs dropped. Scope assertion added and validated.",
       "prompt": "hey can you make a ticket so protostar can back up my codex sessions too, like it already does for claude code",
       "expected_output": "One story for backing up Codex sessions: multi-harness user as actor, no command in the need, criteria grouped by Rule, readable on its own, PROT-12 linked as related.",
-      "files": ["evals/files/protostar-loose"],
+      "files": [
+        "evals/files/protostar-loose"
+      ],
       "assertions": [
-        {"text": "The final message contains an 'As <actor>, I want <need>, so that <purpose>' statement", "script": "has_statement"},
-        {"text": "No statement's need contains a backticked command or a CLI flag", "script": "no_command_in_need"},
-        {"text": "Acceptance criteria are grouped under Rule: blocks with Given/When/Then steps", "script": "criteria_grouped_by_rule"},
-        "The story's actor is the multi-harness user (or another archetype from docs/actors.md), not a generic 'user'",
+        {
+          "text": "The assistant delivers a story with an 'As <actor>, I want <need>, so that <purpose>' statement",
+          "script": "has_statement"
+        },
+        {
+          "text": "No statement's need contains a backticked command or a CLI flag",
+          "script": "no_command_in_need"
+        },
+        {
+          "text": "Acceptance criteria are grouped under Rule: blocks with Given/When/Then steps",
+          "script": "criteria_grouped_by_rule"
+        },
         "The purpose states why the actor cares rather than restating that the sessions get backed up",
-        "The story is readable on its own: it does not rely on phrases like 'same as' or 'like the Claude Code one' to define its behaviour",
-        "The story links or refers to PROT-12 as a related ticket"
+        "Only the requested story is written in full; other tickets are at most mentioned as brief suggestions"
       ]
     },
     {
       "id": 2,
       "name": "just-do-it-batch",
       "validated": true,
-      "validation_note": "Owner validated 2026-10-25. Item 2 may be a user-visible performance story or technical work, but never a story about the index itself.",
+      "validation_note": "Owner validated 2026-10-25. Item 2 may be a user-visible performance story or technical work, but never a story about the index itself. 2026-10-25: assertions that passed in both configs dropped.",
       "prompt": "just turn these into proper stories, no questions, I'm heading out:\n1. skills pull command: `protostar skills pull <name>` downloads a skill from the registry into ~/.claude/skills\n2. add an index on skill_versions(skill_id, created_at) because listing is slow\n3. investigate how codex stores skills on disk\n4. config sync: settings, hooks, MCP servers and CLAUDE.md all replicate across all my machines",
       "expected_output": "Item 1 is a story with the command in Context; item 2 is a performance story about what users notice or technical work, never a story about the index; item 3 is a spike naming its artifact; item 4 is an epic or split. One turn, gaps recorded as open questions.",
-      "files": ["evals/files/protostar-loose"],
+      "files": [
+        "evals/files/protostar-loose"
+      ],
       "assertions": [
-        {"text": "The assistant finished in one turn without stopping to ask the user anything", "script": "no_questions_asked"},
-        {"text": "No statement's need contains a backticked command or a CLI flag", "script": "no_command_in_need"},
-        "Item 1 (skills pull) is written as a story whose need describes the capability, with the specific command shape in a separate context or notes section",
-        "Item 2 is either a story about the slowness users notice or technical work (part of a story, a sub-task, or an enabler); it is never a story whose need is the index itself",
-        "Item 3 (investigate Codex skills) is treated as a spike and names a persistent artifact it must produce, such as a written format description or ADR",
-        "Item 4 (config sync) is identified as too large for one story and is treated as an epic or split into several stories",
-        "Unresolved points are recorded as open questions or assumptions rather than silently decided"
+        {
+          "text": "No statement's need contains a backticked command or a CLI flag",
+          "script": "no_command_in_need"
+        },
+        "Item 1 (skills pull) is written as a story whose need describes the capability, with the specific command shape in a separate context or notes section"
       ]
     },
     {
       "id": 3,
       "name": "review-subtle-story",
       "validated": true,
-      "validation_note": "Owner validated 2026-10-25.",
+      "validation_note": "Owner validated 2026-10-25. 2026-10-25: assertions that passed in both configs dropped.",
       "prompt": "is this one ok? \"As a user, I want to sync and search my sessions, so that I can sync and search them.\"",
       "expected_output": "Flags the generic actor, the two needs, and the purpose that restates the need; offers two rewritten stories, each with an archetype.",
-      "files": ["evals/files/protostar-loose"],
+      "files": [
+        "evals/files/protostar-loose"
+      ],
       "assertions": [
-        "The review points out that 'a user' is too generic and names a specific archetype instead",
-        "The review points out that the story contains two needs (sync and search) that should be separate stories",
-        "The review points out that the purpose restates the need instead of saying why the user cares",
         "The review offers two rewritten stories, one for syncing or backing up and one for searching, each with an archetype from docs/actors.md"
       ]
     },
@@ -57,58 +65,66 @@
       "id": 4,
       "name": "duplicate-check",
       "validated": true,
-      "validation_note": "Owner validated 2026-10-25.",
+      "validation_note": "Owner validated 2026-10-25. 2026-10-25: assertions that passed in both configs dropped. Scope assertion added and validated.",
       "prompt": "write a story: as a user I want my sessions backed up to the registry so I don't lose them",
       "expected_output": "Finds PROT-12, says this is that ticket, proposes rewriting PROT-12 properly instead of adding a duplicate, and uses an archetype rather than 'a user'.",
-      "files": ["evals/files/protostar-loose"],
+      "files": [
+        "evals/files/protostar-loose"
+      ],
       "assertions": [
-        "The assistant found PROT-12 in docs/backlog and told the user this request is already covered by it",
-        "The assistant proposed rewriting or refining PROT-12 rather than presenting a new, separate story as the answer",
-        "The proposed story uses a specific archetype from docs/actors.md rather than the generic 'a user'"
+        "Only the requested story is written in full; other tickets are at most mentioned as brief suggestions"
       ]
     },
     {
       "id": 5,
       "name": "guided-brain-dump",
       "validated": true,
-      "validation_note": "Owner validated 2026-10-25. Recommended answers are required for decisions, not for fact-finding questions.",
+      "validation_note": "Owner validated 2026-10-25. Every question carries a recommended answer (owner, 2026-10-26). 2026-10-25: assertions that passed in both configs dropped.",
       "prompt": "I want to think through a story but it's pretty fuzzy. something about being able to tell which machine a session came from once it's in the registry. can you help me work it out?",
       "expected_output": "Invites a brain dump, asks focused questions with a recommended answer for each decision, never asks what the repo answers, and delivers a story with an archetype and criteria grouped by Rule.",
-      "files": ["evals/files/protostar-loose"],
+      "files": [
+        "evals/files/protostar-loose"
+      ],
       "assertions": [
-        {"text": "The final message contains an 'As <actor>, I want <need>, so that <purpose>' statement", "script": "has_statement"},
-        {"text": "Acceptance criteria are grouped under Rule: blocks with Given/When/Then steps", "script": "criteria_grouped_by_rule"},
+        {
+          "text": "The assistant delivers a story with an 'As <actor>, I want <need>, so that <purpose>' statement",
+          "script": "has_statement"
+        },
+        {
+          "text": "Acceptance criteria are grouped under Rule: blocks with Given/When/Then steps",
+          "script": "criteria_grouped_by_rule"
+        },
         "Early in the conversation the assistant invites the user to share everything they have in mind, rather than asking for one template field at a time",
-        "Every question that asks the user to make a decision comes with a recommended answer (questions asking for facts are exempt)",
-        "The assistant did not ask the user anything the repository answers, such as the list of actors",
-        "The delivered story's actor is an archetype from docs/actors.md"
+        "Every question the assistant asks the user, including follow-ups after a draft, comes with a recommended answer or best guess",
+        "The assistant did not ask the user anything the repository answers, such as the list of actors"
       ]
     },
     {
       "id": 6,
       "name": "misremembered-ticket",
       "validated": true,
-      "validation_note": "Owner validated 2026-10-25.",
+      "validation_note": "Owner validated 2026-10-25. 2026-10-25: assertions that passed in both configs dropped. Scope assertion added and validated.",
       "prompt": "write up PROT-14 properly, the one where sessions sync every time I save a file",
       "expected_output": "Reads PROT-14, points out it says sync runs when a session ends rather than on every save, and asks which is intended instead of silently picking one.",
-      "files": ["evals/files/protostar-loose"],
+      "files": [
+        "evals/files/protostar-loose"
+      ],
       "assertions": [
-        "The assistant read PROT-14 and pointed out that it describes syncing when a session ends, not on every file save",
-        "The assistant asked the user which behaviour is intended, or clearly flagged the conflict, before or instead of silently choosing one",
-        "The final story matches the behaviour the user confirmed (syncing when a session ends)"
+        "The final story matches the behaviour the user confirmed (syncing when a session ends)",
+        "Only the requested story is written in full; other tickets are at most mentioned as brief suggestions"
       ]
     },
     {
       "id": 7,
       "name": "epic-sized-request",
       "validated": true,
-      "validation_note": "Owner validated 2026-10-25.",
+      "validation_note": "Owner validated 2026-10-25. 2026-10-25: assertions that passed in both configs dropped.",
       "prompt": "make a story for setting up a brand new machine in one go: sign in, pull my skills and config, and start backing up sessions",
       "expected_output": "Says the request is epic-sized and proposes three or four separate stories (or an epic plus stories) instead of one story covering everything.",
-      "files": ["evals/files/protostar-loose"],
+      "files": [
+        "evals/files/protostar-loose"
+      ],
       "assertions": [
-        "The assistant says the request is too big for one story, or treats it as an epic",
-        "The assistant proposes at least three separate stories, or an epic with at least three stories under it",
         "The assistant does not present a single story whose need covers signing in, pulling skills and config, and backing up all at once"
       ]
     },
@@ -116,26 +132,31 @@
       "id": 8,
       "name": "no-actor-data",
       "validated": true,
-      "validation_note": "Owner validated 2026-10-25.",
+      "validation_note": "Owner validated 2026-10-25. 2026-10-25: assertions that passed in both configs dropped.",
       "prompt": "write a story so I can see how many tokens each session used",
       "expected_output": "With no actors list in the repo, either asks who the story is for or states its actor assumption clearly as an open question; never silently invents a persona or falls back to 'As a user'.",
-      "files": ["evals/files/protostar-bare"],
+      "files": [
+        "evals/files/protostar-bare"
+      ],
       "assertions": [
-        "The assistant either asked the user who the story is for, or stated its choice of actor as an explicit assumption or open question",
-        "The final story does not use the generic actor 'a user' without qualification",
-        "The assistant does not present an invented persona (with a name or made-up background) as if it came from the project"
+        "The assistant either asked the user who the story is for, or stated its choice of actor as an explicit assumption or open question"
       ]
     },
     {
       "id": 9,
       "name": "command-in-need-requested",
       "validated": true,
-      "validation_note": "Owner validated 2026-10-25. Respect the explicit instruction, explain the concern, and offer to move the command to Context.",
+      "validation_note": "Owner validated 2026-10-25. Respect the explicit instruction, explain the concern, and offer to move the command to Context. 2026-10-25: assertions that passed in both configs dropped.",
       "prompt": "write a story for pruning old sessions, and put the exact command `protostar sessions prune --older-than 90d` in the \"I want\" so devs know what to build",
       "expected_output": "Puts the command in the need as asked, tells the user briefly why that is a concern and that it belongs in Context, and offers to move it there.",
-      "files": ["evals/files/protostar-loose"],
+      "files": [
+        "evals/files/protostar-loose"
+      ],
       "assertions": [
-        {"text": "The delivered story's need contains the command the user asked for", "script": "command_in_need"},
+        {
+          "text": "The delivered story's need contains the command the user asked for",
+          "script": "command_in_need"
+        },
         "The assistant explained why putting the command in the need is a concern (for example that it fixes the design or goes stale)",
         "The assistant offered to move the command to a context section rather than moving it without asking"
       ]

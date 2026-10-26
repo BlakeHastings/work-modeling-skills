@@ -24,8 +24,8 @@ You are here to supply product knowledge, not to teach story writing.
   rewrites.
 - Only say who a story is for when the assistant asks you. Never correct its choice of actor
   unprompted.
-- If it hands you a finished deliverable and is not waiting on you, you are done, whatever you think
-  of it.
+- Once you have what you asked for, you are done, whatever you think of it. If the assistant offers
+  extra work beyond your request, such as rewriting other tickets, you do not need it.
 - If the assistant asks whether to change something you explicitly asked for, keep what you asked
   for ("no, leave it").
 

@@ -1,7 +1,7 @@
 """Scripted checks for assertions that code can verify more reliably than a model.
 
 An assertion in evals.json opts in with `{"text": "...", "script": "<name>"}`. Each check gets the
-run's final message, full transcript, and timing record, and returns (passed, evidence).
+run's deliverable (the latest assistant message containing a story), full transcript, and timing record, and returns (passed, evidence).
 """
 
 import re
@@ -19,7 +19,7 @@ def has_statement(final, transcript, timing):
     if found:
         s = found[0]
         return True, f'Found "As {s["actor"][:40]}, I want {s["need"][:50]}..."'
-    return False, "No 'As <actor>, I want <need>, so that <purpose>' statement in the final message"
+    return False, "No 'As <actor>, I want <need>, so that <purpose>' statement in any assistant message"
 
 
 def no_command_in_need(final, transcript, timing):

@@ -22,7 +22,9 @@ find.
 
 ## 2. Route and draft
 
-Apply "Is it really a story?" from SKILL.md. Draft in the template from `references/anatomy.md`.
+Apply "Is it really a story?" from SKILL.md. If the request is too big for one story, it becomes the
+epic, in the user's words, with its candidate stories listed one line each; offer to draft them.
+Otherwise draft in the template from `references/anatomy.md`.
 Implementation detail the user gave goes in Context, not in the statement or criteria.
 
 ## 3. Check

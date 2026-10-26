@@ -53,5 +53,9 @@ answers.
 the first story that needs it. Fix: try folding it in first; split only when that blows the story's
 scope or blocks other stories on non-user-facing work.
 
+**Bundle story.** An epic split into stories, plus one more story that does them all at once ("set
+up everything in one step"). Fix: drop it; "in one go" is the epic's goal, and
+the stories under it deliver it.
+
 **Sub-tasks as a to-do list.** Sub-tasks created for every step. Fix: keep the work in the story;
 sub-task only for parallel or separately delivered work.

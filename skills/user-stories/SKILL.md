@@ -85,8 +85,13 @@ Decide what the item is before writing it:
    comparison, prototype write-up) that answers its question and questions like it later; learning
    that lives only in someone's head is lost by the next story. Its criteria describe the artifact.
    When it closes, update or split the story it served.
-5. **Too big to demo in one sitting, or several distinct outcomes** → likely an **epic**, or a story
-   that needs splitting.
+5. **Too big to demo in one sitting, or several distinct outcomes** → an **epic**. Capture what the
+   user asked for as the epic, in their words, so the intent is not lost. Say plainly that it is too
+   big for one story and why: the distinct outcomes, and, if it helps, a rough complexity estimate
+   (13 points or more) as evidence, without asking the user to adopt estimates. List the candidate
+   stories one line each, noting any that already exist, and offer to break it down. Do not write a
+   story that bundles the outcomes back together ("do all of it in one step"): that story is the
+   epic again, and it ships, slips, and gets cut as one.
 
 ## Actors
 
@@ -144,6 +149,22 @@ Ways this tends to pay off, as examples rather than a sequence:
 
 When you do ask, mention what you already found, so the user can see it was checked and correct it if
 it is wrong.
+
+## Every question carries a recommendation
+
+Any question you put to the user comes with your recommended answer, worded so "yes" accepts it. That
+holds at every point: the first round, follow-ups after a draft, offers ("want me to split this?"),
+and Open questions written into a ticket. For a fact you could not find, give your best guess. A
+bare question hands the user the thinking; a recommendation lets them decide in one word, and shows
+what you would do if they say nothing.
+
+## Deliver what was asked
+
+Write the item the user asked for. Gathering context often turns up related problems: a weak
+neighbouring ticket, a missing spike, an epic that should exist. Mention each in one line, and write
+it out only when the user asks for it. An answer like "your call" or "sure, whatever" to an offer is
+not a request; leave the extra as a suggestion. Unrequested tickets cost the user review time and bury
+the one they wanted.
 
 ## Workflows
 

@@ -8,9 +8,10 @@ do the structuring yourself and challenge what does not hold up.
 Progress:
 - [ ] 1. Ask for the brain dump
 - [ ] 2. Look up what you can yourself
-- [ ] 3. Grill in rounds until nothing is assumed
-- [ ] 4. Draft the story and run the checks
-- [ ] 5. Confirm with the user
+- [ ] 3. Break the dump into stories
+- [ ] 4. Grill in rounds until nothing is assumed
+- [ ] 5. Draft the story and run the checks
+- [ ] 6. Confirm with the user
 ```
 
 ## 1. Ask for the brain dump
@@ -28,7 +29,14 @@ tools reach (tracker, docs, code, memory) for archetypes, related stories, and c
 Never ask the user something you could have found. Open the first grilling round with a short note of
 what you found, so they can correct it.
 
-## 3. Grill in rounds
+## 3. Break the dump into stories
+
+A brain dump is raw material, not a request for one story, so do not play it back as a single story
+or argue about its size. Break it down straight away: list the stories you see in it, one line each,
+with any that already exist, and recommend which to work through first. Grill one at a time from
+there. If the dump only holds one story, grill it as it is.
+
+## 4. Grill in rounds
 
 Treat the story as a tree of decisions: actor, need, purpose, then the rules, then the examples and
 edge cases under each rule. A decision is ready to ask about once the decisions it depends on are
@@ -60,12 +68,13 @@ Challenge, do not just collect. Push on:
 The grilling is done when no branch is left open and nothing is being silently assumed. If the user
 wants to stop early, stop: anything unresolved becomes an Open question.
 
-## 4. Draft and check
+## 5. Draft and check
 
 Write the story in the template from `references/anatomy.md`. Run every check in
 `references/checks.md` and fix what fails. If the dump produced more than one story, say so and draft
 each.
 
-## 5. Confirm
+## 6. Confirm
 
-Show the story. Point out the one or two places most likely to be wrong. Revise on their answer.
+Show the story. Point out the one or two places most likely to be wrong, each as a question with your
+recommended answer. Revise on their answer.

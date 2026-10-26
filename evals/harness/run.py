@@ -19,6 +19,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from checks import statements  # noqa: E402
 from common import EVALS, SKILLS, WORKSPACE, claude, read_json, structured, total_tokens, write_json  # noqa: E402
 
 CONFIGS = ("with_skill", "without_skill")
@@ -45,9 +46,10 @@ def persona_turn(persona, eval_case, transcript, cwd):
     prompt = (
         f"{persona}\n\n## What you asked for\n\n{eval_case['prompt']}\n\n"
         f"## The conversation so far\n\n{render(transcript)}\n\n"
-        "## Your move\n\nIf the assistant has delivered what you asked for and is not waiting on "
-        "you, set done to true and reply with an empty string. Otherwise set done to false and write "
-        "your reply to the assistant's latest message, in character."
+        "## Your move\n\nIf the assistant has delivered what you asked for, set done to true and "
+        "reply with an empty string, even if it offers optional extra work or signs off: you do not "
+        "need the extras and you do not need to thank it. Otherwise set done to false and write your "
+        "reply to the assistant's latest message, in character."
     )
     result = claude(prompt, cwd, tools="", json_schema=PERSONA_SCHEMA, persist=False)
     return structured(result), result
@@ -55,6 +57,12 @@ def persona_turn(persona, eval_case, transcript, cwd):
 
 def render(transcript):
     return "\n\n".join(f"**{who}:**\n{text}" for who, text in transcript)
+
+
+def deliverable(transcript):
+    """The latest assistant message that contains a story, so a closing remark is not graded as the work."""
+    replies = [text for who, text in transcript if who == "Assistant"]
+    return next((text for text in reversed(replies) if statements(text)), replies[-1])
 
 
 def skills_invoked(session):
@@ -110,8 +118,7 @@ def run_one(skill_name, eval_case, config, run, iteration, persona, scratch_root
     duration_ms = int((time.monotonic() - started) * 1000)
     (out / "outputs").mkdir(exist_ok=True)
     (out / "outputs" / "transcript.md").write_text(render(transcript) + "\n")
-    (out / "outputs" / "final.md").write_text(transcript[-1][1] if transcript[-1][0] == "Assistant"
-                                              else transcript[-2][1])
+    (out / "outputs" / "final.md").write_text(deliverable(transcript))
     write_json(out / "timing.json", {"total_tokens": tokens, "duration_ms": duration_ms,
                                      "agent_turns": turns, "session_id": session,
                                      "skills_invoked": skills_invoked(session),
