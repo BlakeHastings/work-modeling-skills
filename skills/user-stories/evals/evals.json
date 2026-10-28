@@ -51,14 +51,14 @@
       "id": 3,
       "name": "review-subtle-story",
       "validated": true,
-      "validation_note": "Owner validated 2026-10-25. 2026-10-25: assertions that passed in both configs dropped.",
+      "validation_note": "Owner validated 2026-10-25. 2026-10-25: assertions that passed in both configs dropped. 2026-10-27: a half covered by an existing ticket may point at it instead of being rewritten.",
       "prompt": "is this one ok? \"As a user, I want to sync and search my sessions, so that I can sync and search them.\"",
       "expected_output": "Flags the generic actor, the two needs, and the purpose that restates the need; offers two rewritten stories, each with an archetype.",
       "files": [
         "evals/files/protostar-loose"
       ],
       "assertions": [
-        "The review offers two rewritten stories, one for syncing or backing up and one for searching, each with an archetype from docs/actors.md"
+        "The review offers a rewrite for each half (syncing or backing up, and searching), each with an archetype from docs/actors.md; a half that an existing ticket already covers may instead be pointed at that ticket for refinement"
       ]
     },
     {
